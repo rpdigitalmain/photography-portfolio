@@ -2,11 +2,11 @@
 
 ## Supported versions
 
-This repository does not currently publish versioned releases. Security fixes are applied to the latest code on the default branch.
+The project is preparing its first versioned release, 1.0.0. Until it is published, security fixes are applied to the latest code on the default branch.
 
 ## Reporting a vulnerability
 
-Please report suspected vulnerabilities privately through [GitHub's private vulnerability reporting](https://github.com/rpdigitalmain/photography-portfolio/security/advisories/new), when available. Do not open a public issue for an undisclosed vulnerability.
+Please report suspected vulnerabilities privately through [GitHub's private vulnerability reporting](https://github.com/rpdigitalmain/photography-portfolio-helena-duarte/security/advisories/new), when available. Do not open a public issue for an undisclosed vulnerability.
 
 Include as much of the following as you can:
 

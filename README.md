@@ -1,4 +1,4 @@
-# Photography Portfolio
+# Helena Duarte — Photography
 
 A responsive photography portfolio built with Vue 3 and Vite. It presents the photographer's work across portrait, wedding, editorial, and travel galleries, alongside biography, services, and contact information.
 
