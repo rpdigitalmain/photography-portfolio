@@ -11,6 +11,8 @@ import { siteConfig } from '@/data/siteConfig'
     <div class="relative h-[68svh] min-h-[420px] w-full overflow-hidden md:h-[78svh]">
       <img
         :src="siteConfig.heroImage.src"
+        :srcset="siteConfig.heroImage.srcSet"
+        sizes="100vw"
         :alt="siteConfig.heroImage.alt"
         class="hero-image absolute inset-0 size-full object-cover"
         fetchpriority="high"

@@ -3,6 +3,7 @@ import ScrollReveal from './ScrollReveal.vue'
 
 defineProps({
   src: { type: String, required: true },
+  srcSet: { type: String, default: '' },
   alt: { type: String, required: true },
   quote: { type: String, required: true },
   attribution: { type: String, default: '' },
@@ -16,6 +17,8 @@ defineProps({
   >
     <img
       :src="src"
+      :srcset="srcSet || undefined"
+      sizes="100vw"
       :alt="alt"
       class="absolute inset-0 size-full object-cover"
       loading="lazy"

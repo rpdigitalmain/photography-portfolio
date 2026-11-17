@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ArrowLeft } from '@lucide/vue'
-import { categories } from '@/data/galleryData'
+import { categories, getPhotoSrcSet } from '@/data/galleryData'
 import ScrollReveal from '@/components/common/ScrollReveal.vue'
 
 defineProps({ category: { type: Object, required: true } })
@@ -62,6 +62,8 @@ defineProps({ category: { type: Object, required: true } })
       >
         <img
           :src="photo.src"
+          :srcset="getPhotoSrcSet(photo)"
+          sizes="(min-width: 768px) 50vw, 100vw"
           :alt="photo.alt"
           :width="photo.width"
           :height="photo.height"
