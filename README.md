@@ -6,7 +6,6 @@ A responsive photography portfolio built with Vue 3 and Vite. It presents the ph
   <a href="https://vuejs.org/"><img alt="Vue 3" src="https://img.shields.io/badge/Vue.js-3-4FC08D?logo=vuedotjs&logoColor=white"></a>
   <a href="https://vite.dev/"><img alt="Vite 8" src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white"></a>
   <a href="https://tailwindcss.com/"><img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white"></a>
-  <a href="https://sharp.pixelplumbing.com/"><img alt="Sharp" src="https://img.shields.io/badge/Image_processing-Sharp-99CC00"></a>
   <a href="https://eslint.org/"><img alt="ESLint" src="https://img.shields.io/badge/Lint-ESLint-4B32C3?logo=eslint&logoColor=white"></a>
 </p>
 
@@ -14,7 +13,7 @@ A responsive photography portfolio built with Vue 3 and Vite. It presents the ph
 
 - Vue Router pages for the homepage and `/gallery/:category` routes.
 - Responsive layouts and image sources for desktop and smaller screens.
-- WebP photographs with generated 768-pixel variants.
+- WebP photographs with responsive image variants.
 - Self-hosted Inter and Cormorant Garamond variable fonts.
 - Accessible mobile navigation, keyboard skip link, and reduced-motion support.
 - Client-side contact form validation.
@@ -42,7 +41,6 @@ Vite prints the local development URL after the server starts.
 | `npm run preview` | Preview the production build locally. |
 | `npm run lint` | Check JavaScript and Vue files with ESLint. |
 | `npm run lint:fix` | Apply automatic ESLint fixes. |
-| `npm run images:optimize` | Generate optimized WebP files from source photographs. |
 
 ## Project layout
 
@@ -74,20 +72,13 @@ public/images/
 ├── travel/
 └── site/
 
-scripts/optimize-images.js
 ```
 
 `src/data/` contains the site copy, navigation, services, and gallery entries. `src/assets/styles/` contains the design tokens and shared styles.
 
 ## Replacing photographs
 
-Original photographs are grouped by category in `src/assets/images/originals/`. Replace an image in its matching folder while keeping its basename and file extension, then run:
-
-```sh
-npm run images:optimize
-```
-
-Sharp preserves the category folders when writing WebP files to `public/images/` and creates a 768-pixel variant when a source is wider than 960 pixels. Update `src/data/galleryData.js` or `src/data/siteConfig.js` when adding or renaming an image.
+Original photographs are grouped by category in `src/assets/images/originals/`. The site serves the WebP photographs in `public/images/`. When replacing or adding an image, update the corresponding files there and adjust `src/data/galleryData.js` or `src/data/siteConfig.js` if the paths or filenames change.
 
 ## Contact form
 
@@ -101,7 +92,7 @@ Vercel Analytics is included for production builds. Enable Web Analytics in the 
 
 ## Documentation
 
-- [Architecture](docs/ARCHITECTURE.md) describes the application structure, routing, data flow, styling, and image pipeline.
+- [Architecture](docs/ARCHITECTURE.md) describes the application structure, routing, data flow, styling, and image delivery.
 - [Security policy](docs/SECURITY.md) explains supported versions and how to report a vulnerability.
 
 ## License

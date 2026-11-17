@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "images:optimize": "node scripts/optimize-images.js"
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "^5.3.0",
@@ -29,7 +28,6 @@
     "eslint": "^10.15.0",
     "eslint-plugin-vue": "^10.12.1",
     "globals": "^17.14.0",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.5",
     "vite": "^8.2.2",
     "vite-plugin-vue-devtools": "^8.2.1"

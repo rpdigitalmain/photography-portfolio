@@ -50,24 +50,17 @@ Static hosts must rewrite unknown paths to `/index.html` for direct navigation t
 
 `ContactForm.vue` collects and validates name, email, project type, and message. `src/services/contactService.js` performs the validation and returns the form state used to display errors or a confirmation. It does not send data to a server or email provider. Connect a form endpoint in the service before treating submissions as delivered inquiries.
 
-## Image pipeline
+## Image delivery
 
-Source photographs are kept outside the public asset tree, grouped under `src/assets/images/originals/` by `portraits`, `weddings`, `editorial`, `travel`, and `site`.
+Photographs served by the site are stored as WebP assets under `public/images/`, grouped by category. Source originals are kept under `src/assets/images/originals/`.
 
 ```mermaid
 flowchart LR
-    Originals[src/assets/images/originals/category/] --> Script[scripts/optimize-images.js]
-    Script --> Sharp[Sharp: rotate and encode WebP]
-    Sharp --> Full[public/images/category/name.webp]
-    Sharp --> Small[public/images/category/name-768.webp when source width exceeds 960px]
-    Full --> Data[data modules provide src]
-    Small --> Data
+    Files[public/images/**/*.webp] --> Data[data modules provide src and srcset]
     Data --> Browser[img srcset and sizes]
 ```
 
-Run `npm run images:optimize` after replacing or adding source photographs. The script preserves the category folder structure, writes full-size WebP output at quality 82, and creates a 768-pixel-wide WebP variant at quality 80 for wider source images. Gallery entries use `getPhotoSrcSet()` to pair available variants with their intrinsic widths; hero and banner images declare their variants in site/page data.
-
-Keep source basenames stable when replacing a photo. When adding or renaming one, update the corresponding entry in `siteConfig.js` or `galleryData.js` so the page points to the generated WebP path.
+Gallery entries use `getPhotoSrcSet()` to select responsive variants; hero and banner images declare their variants in site/page data. Keep asset paths aligned with the entries in `siteConfig.js` and `galleryData.js` when replacing or renaming photographs.
 
 ## Styling and assets
 
@@ -83,6 +76,5 @@ Keep source basenames stable when replacing a photo. When adding or renaming one
 - `npm run lint` and `npm run lint:fix` run ESLint.
 - `npm run build` creates the static production bundle in `dist/`.
 - `npm run preview` serves the production bundle locally.
-- `sharp` is a development dependency used by the image optimization script.
 - Vercel Analytics is mounted only when `import.meta.env.PROD` is true. Enable Web Analytics in Vercel project settings to collect production analytics.
 - `package.json` declares supported Node versions as `^22.18.0 || >=24.12.0`.

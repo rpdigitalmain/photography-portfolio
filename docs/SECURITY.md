@@ -21,6 +21,6 @@ If private vulnerability reporting is unavailable, contact the repository mainta
 
 ## Scope
 
-Reports may cover the application source, its dependencies, the image optimization script, or build and deployment configuration.
+Reports may cover the application source, its dependencies, or build and deployment configuration.
 
 The contact form currently performs client-side validation only; it is not connected to an email delivery service.
