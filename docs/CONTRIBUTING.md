@@ -20,12 +20,51 @@ npm run lint
 npm run build
 npx playwright install chromium
 npm run test:e2e
-npm audit --audit-level=high
+npm audit --audit-level=high --omit dev
 ```
 
-The Playwright browser only needs to be installed once per environment. The [CI workflow](../.github/workflows/ci.yml) runs lint, build, and E2E checks on Windows with Node.js 22.18.0 and 24.12.0, and audits dependencies.
+The Playwright browser only needs to be installed once per environment. The [CI workflow](../.github/workflows/ci.yml) runs lint, build, and E2E checks on Windows with Node.js 22.18.0 and 24.12.0, and on Ubuntu with Node.js 24.12.0. The Ubuntu job also audits dependencies.
 
 Add or update E2E coverage when changing user-visible navigation, galleries, or contact flows. Include `package-lock.json` when changing npm dependencies.
+
+## Run the Linux CI job locally
+
+With Docker Desktop running and `act` installed, run the Linux job from the repository root:
+
+```sh
+act -j linux
+```
+
+The repository's [`.actrc`](../.actrc) selects the Ubuntu runner image used for this local run. `act` is an approximation of GitHub Actions; use the GitHub-hosted CI result as the final check.
+
+## Build and run with Docker
+
+Build the production image:
+
+```sh
+docker build -t photography-portfolio:latest .
+```
+
+Run the container and visit <http://localhost:8080>:
+
+```sh
+docker run -d -p 8080:80 --name photography-portfolio photography-portfolio:latest
+```
+
+Or use Compose:
+
+```sh
+docker compose up --build
+```
+
+The production image is a multi-stage build: Node.js builds the Vite bundle, and nginx serves the static files with Vue Router history-mode support (direct visits to `/gallery/:category` rewrite to `/index.html`).
+
+Stop and remove the container:
+
+```sh
+docker stop photography-portfolio
+docker rm photography-portfolio
+```
 
 ## Architecture decision records
 
