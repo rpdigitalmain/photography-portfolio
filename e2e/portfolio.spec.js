@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test.describe('photography portfolio', () => {
+test.describe('Helena Duarte photography portfolio', () => {
   test('renders the home page and its main sections', async ({ page }) => {
     await page.goto('/')
 

@@ -6,7 +6,7 @@ This repository does not currently publish versioned releases. Security fixes ar
 
 ## Reporting a vulnerability
 
-Please report suspected vulnerabilities privately through [GitHub's private vulnerability reporting](https://github.com/rpdigitalmain/photography-portfolio/security/advisories/new), when available. Do not open a public issue for an undisclosed vulnerability.
+Please report suspected vulnerabilities privately through [GitHub's private vulnerability reporting](https://github.com/rpdigitalmain/photography-portfolio-helena-duarte/security/advisories/new), when available. Do not open a public issue for an undisclosed vulnerability.
 
 Include as much of the following as you can:
 

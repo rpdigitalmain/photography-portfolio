@@ -42,13 +42,13 @@ The repository's [`.actrc`](../.actrc) selects the Ubuntu runner image used for 
 Build the production image:
 
 ```sh
-docker build -t photography-portfolio:latest .
+docker build -t photography-portfolio-helena-duarte:latest .
 ```
 
 Run the container and visit <http://localhost:8080>:
 
 ```sh
-docker run -d -p 8080:80 --name photography-portfolio photography-portfolio:latest
+docker run -d -p 8080:80 --name photography-portfolio-helena-duarte photography-portfolio-helena-duarte:latest
 ```
 
 Or use Compose:
@@ -62,8 +62,8 @@ The production image is a multi-stage build: Node.js builds the Vite bundle, and
 Stop and remove the container:
 
 ```sh
-docker stop photography-portfolio
-docker rm photography-portfolio
+docker stop photography-portfolio-helena-duarte
+docker rm photography-portfolio-helena-duarte
 ```
 
 ## Architecture decision records
