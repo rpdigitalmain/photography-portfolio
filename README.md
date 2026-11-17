@@ -98,3 +98,12 @@ The form validates its fields and displays a confirmation state. Email delivery 
 The project builds to `dist/` and can be hosted as a static site. Configure the host to rewrite unknown paths to `/index.html` so direct visits to `/gallery/:category` load the Vue Router application.
 
 Vercel Analytics is included for production builds. Enable Web Analytics in the Vercel project settings to collect analytics data.
+
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md) describes the application structure, routing, data flow, styling, and image pipeline.
+- [Security policy](docs/SECURITY.md) explains supported versions and how to report a vulnerability.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
