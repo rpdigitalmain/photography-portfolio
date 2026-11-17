@@ -23,8 +23,8 @@ onMounted(() => {
     <HomeHero />
     <GalleryCategories />
     <PhotoBanner
-      src="/images/memory-banner.webp"
-      src-set="/images/memory-banner-768.webp 768w, /images/memory-banner.webp 1376w"
+      src="/images/site/memory-banner.webp"
+      src-set="/images/site/memory-banner-768.webp 768w, /images/site/memory-banner.webp 1376w"
       alt="White curtain moving in the breeze beside an open window and an empty chair"
       quote="A photograph is a memory we choose not to let go."
       attribution="On memory"
@@ -32,8 +32,8 @@ onMounted(() => {
     <AboutSection />
     <ServicesSection />
     <PhotoBanner
-      src="/images/light-banner.webp"
-      src-set="/images/light-banner-768.webp 768w, /images/light-banner.webp 1376w"
+      src="/images/site/light-banner.webp"
+      src-set="/images/site/light-banner-768.webp 768w, /images/site/light-banner.webp 1376w"
       alt="Calm sea horizon beneath low clouds, with a distant figure standing on the rocks"
       quote="I wait for the light as if for someone I love to arrive."
       attribution="On the process"
