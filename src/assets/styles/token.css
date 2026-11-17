@@ -1,20 +1,20 @@
 :root {
   color-scheme: light;
-
-  /* Colors */
   --color-ink: #201f1d;
   --color-ink-muted: #68645f;
   --color-paper: #f8f7f4;
   --color-surface: #fff;
+  --surface-card: #f1efeb;
+  --surface-muted: #eeece7;
   --color-line: #e5e1db;
-  --color-accent: #a36f4f;
-  --color-accent-hover: #82563d;
+  --brand-accent: #a36f4f;
+  --brand-accent-hover: #82563d;
   --color-focus: #376b8a;
+  --status-destructive: #a43d31;
   --color-overlay: rgb(20 18 16 / 58%);
 
-  /* Typography */
-  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter Variable', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -25,7 +25,6 @@
   --line-height-body: 1.65;
   --letter-spacing-wide: 0.12em;
 
-  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -39,7 +38,6 @@
   --content-width: 80rem;
   --reading-width: 44rem;
 
-  /* Shape, depth, and motion */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-pill: 999px;
@@ -48,3 +46,24 @@
   --duration-normal: 240ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 }
+
+@theme inline {
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display), ui-serif, Georgia, serif;
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--surface-card);
+  --color-card-foreground: var(--color-ink);
+  --color-muted: var(--surface-muted);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-paper);
+  --color-accent: var(--brand-accent);
+  --color-accent-foreground: var(--color-paper);
+  --color-destructive: var(--status-destructive);
+  --color-ring: var(--color-focus);
+  --radius: 0rem;
+}
+

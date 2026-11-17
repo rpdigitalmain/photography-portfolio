@@ -1,38 +1,34 @@
-# photography-portfolio
+# Photography Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A photography portfolio built with Vue 3, Vite, Vue Router, and Tailwind CSS.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Getting started
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Available commands
 
 ```sh
+npm run lint
+npm run lint:fix
 npm run build
+npm run preview
 ```
+
+## Project structure
+
+- `src/components/` contains shared layout, home, gallery, and contact components.
+- `src/pages/` contains the home page, gallery category page, and not-found page.
+- `src/data/` contains the site copy, services, navigation, and gallery entries.
+- `src/router/` defines the home and `/gallery/:category` routes.
+- `src/assets/styles/` contains the design tokens and shared styles.
+- `public/images/` contains the replaceable portfolio photographs.
+
+Update the English copy and image paths in `src/data/`. Replace photographs in `public/images/` while keeping the current filenames, or update the corresponding paths in `src/data/galleryData.js` and `src/data/siteConfig.js`.
+
+The contact form validates fields and shows the original success state. Email delivery is not connected; configure a form endpoint in `src/services/contactService.js` before using it to receive inquiries.
+
+For static hosting, configure a fallback rewrite to /index.html so direct visits to /gallery/:category work.
