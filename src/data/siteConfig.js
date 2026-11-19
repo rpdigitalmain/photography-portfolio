@@ -1,3 +1,5 @@
+import { imageUrl } from '@/data/imageUrls'
+
 export const siteConfig = {
   name: 'Helena Duarte',
   tagline: 'Photography',
@@ -6,13 +8,13 @@ export const siteConfig = {
   heroSubtitle:
     'Fine art photography of portraits, weddings, editorials, and travel, made slowly with natural light and an eye for detail.',
   heroImage: {
-    src: '/images/site/hero.webp',
-    srcSet: '/images/site/hero-768.webp 768w, /images/site/hero.webp 1376w',
+    src: imageUrl('/images/site/hero.webp'),
+    srcSet: `${imageUrl('/images/site/hero-768.webp')} 768w, ${imageUrl('/images/site/hero.webp')} 1376w`,
     alt: 'Woman in a light dress walking alone across misty dunes at dawn',
   },
   about: {
     image: {
-      src: '/images/site/photographer-about.webp',
+      src: imageUrl('/images/site/photographer-about.webp'),
       alt: 'Portrait of Helena Duarte holding an analog camera beside a window',
     },
     bio: [

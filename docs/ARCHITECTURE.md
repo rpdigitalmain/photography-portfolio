@@ -52,11 +52,11 @@ Static hosts must rewrite unknown paths to `/index.html` for direct navigation t
 
 ## Image delivery
 
-Photographs served by the site are stored as WebP assets under `public/images/`, grouped by category. Source originals are kept under `src/assets/images/originals/`.
+Photographs served by the site are stored as optimized WebP objects in a public Cloudflare R2 bucket, grouped by category under `images/`. The bucket base URL is configured in `src/data/imageUrls.js`; image data modules add the object paths and responsive variants. See [ADR-0003](adr/0003-cloudflare-r2-image-storage.md) for the rationale and trade-offs.
 
 ```mermaid
 flowchart LR
-    Files[public/images/**/*.webp] --> Data[data modules provide src and srcset]
+    R2[Cloudflare R2 images/**/*.webp] --> Data[data modules provide src and srcset]
     Data --> Browser[img srcset and sizes]
 ```
 
