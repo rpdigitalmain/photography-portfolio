@@ -47,12 +47,6 @@ Vite prints the local development URL after the server starts.
 ```text
 src/
 ├── assets/
-│   ├── images/originals/
-│   │   ├── portraits/
-│   │   ├── weddings/
-│   │   ├── editorial/
-│   │   ├── travel/
-│   │   └── site/
 │   └── styles/
 ├── components/
 │   ├── common/
@@ -65,20 +59,13 @@ src/
 ├── router/
 └── services/
 
-public/images/
-├── portraits/
-├── weddings/
-├── editorial/
-├── travel/
-└── site/
-
 ```
 
 `src/data/` contains the site copy, navigation, services, and gallery entries. `src/assets/styles/` contains the design tokens and shared styles.
 
 ## Replacing photographs
 
-Original photographs are grouped by category in `src/assets/images/originals/`. The site serves the WebP photographs in `public/images/`. When replacing or adding an image, update the corresponding files there and adjust `src/data/galleryData.js` or `src/data/siteConfig.js` if the paths or filenames change.
+The site serves optimized WebP photographs from a public Cloudflare R2 bucket. When replacing or adding an image, upload it under the matching `images/` path and update `src/data/galleryData.js` or `src/data/siteConfig.js` if the paths or filenames change. The bucket base URL is configured in `src/data/imageUrls.js`.
 
 ## Contact form
 

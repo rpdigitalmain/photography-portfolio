@@ -1,4 +1,4 @@
-name: Release
+name: Release validation
 
 on:
   push:
@@ -7,19 +7,19 @@ on:
 
 permissions:
   contents: read
-  deployments: write
 
 jobs:
-  deploy:
-    name: Build and deploy release
+  validate:
+    name: Validate release tag
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24.12.0'
           cache: npm
@@ -27,13 +27,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site
+      - name: Check lint
+        run: npm run lint
+
+      - name: Build production bundle
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v4
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=photography-portfolio-helena-duarte
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Playwright Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Run end-to-end tests
+        run: npm run test:e2e
